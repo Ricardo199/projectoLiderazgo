@@ -23,16 +23,28 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
-        var commentsCount = 0
-        $('#btn').click(function () {
-          commentsCount = commentsCount + 2
-          $('#comments').load('load-comments.php', {
-            commentsNewCount: commentsCount,
-          })
-        })
-      })
+        var commentsCount = 0;
+
+        $("#btn").click(function () {
+          $.post(
+            "load-comments.php",
+            {
+              commentsNewCount: commentsCount,
+            },
+            function (response) {
+              if (response.trim() === "NoMoreComments") {
+                $("#btn").hide();
+              } else {
+                $("#comments").append(response);
+                commentsCount = commentsCount + 2;
+              }
+            }
+          );
+        });
+      });
     </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
