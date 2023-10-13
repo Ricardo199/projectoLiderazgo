@@ -35,7 +35,7 @@
               commentsNewCount: commentsCount,
             },
             function (response) {
-              if (response.trim() === "NoMoreComments") {
+              if (response.trim() == "NoMoreComments") {
                 $("#btn").hide();
               } else {
                 $("#comments").append(response);
@@ -1009,14 +1009,8 @@
                       <th class="px-4 py-3">Date</th>
                     </tr>
                   </thead>
-                  <tbody
-                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
-                  >
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div id="comments"></div>
-                      </td>
-                    </tr>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                        <tr id="comments"></tr>
                   </tbody>
                 </table>
               </div>
