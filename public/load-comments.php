@@ -7,7 +7,7 @@ $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($result) > $result2) {
   while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr class='text-gray-700 dark:text-gray-400'>
+    echo "
     <td class='px-4 py-3'>
       <div class='flex items-center text-sm'>
         <!-- Avatar with inset shadow -->
@@ -37,7 +37,8 @@ if (mysqli_num_rows($result) > $result2) {
     </td>
     <td class='px-4 py-3 text-sm'>
       "; echo $row['mensaje']; echo"
-    </td>";
+    </td>
+    <br>";
   }
 } else {
   echo "NoMoreComments";
