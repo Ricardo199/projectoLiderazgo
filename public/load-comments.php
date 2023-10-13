@@ -1,22 +1,20 @@
 <?php
 include 'dbh.php';
 $commentsNewCount = $_POST['commentsNewCount'];
-$sql = "SELECT author, comentario FROM comments LIMIT $commentsNewCount,2";
+$sql = "SELECT author, comentario FROM comments";
 $sql2 = "SELECT COUNT('author') FROM comments";
 $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($result) > $result2) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo "
+    <td>
     <td class='px-4 py-3'>
       <div class='flex items-center text-sm'>
         <!-- Avatar with inset shadow -->
         <div class='relative hidden w-8 h-8 mr-3 rounded-full md:block' >
           <img class='object-cover w-full h-full rounded-full' src='https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' alt='' loading='lazy' />
-          <div
-            class='absolute inset-0 rounded-full shadow-inner'
-            aria-hidden='true'
-          ></div>
+          <div class='absolute inset-0 rounded-full shadow-inner' aria-hidden='true'></div>
         </div>
         <div>
           <p class='font-semibold'>"; echo $row['author']; echo"</p>
@@ -38,7 +36,7 @@ if (mysqli_num_rows($result) > $result2) {
     <td class='px-4 py-3 text-sm'>
       "; echo $row['mensaje']; echo"
     </td>
-    <br>";
+    </td>";
   }
 } else {
   echo "NoMoreComments";
