@@ -1,14 +1,14 @@
 <?php
 include 'dbh.php';
 $commentsNewCount = $_POST['commentsNewCount'];
-$sql = "SELECT author, comentario FROM comments";
+$sql = "SELECT author, comentario FROM comments LIMIT $commentsNewCount, 2";
 $sql2 = "SELECT COUNT('author') FROM comments";
 $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($result) > $result2) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo "
-    <td>
+    <p>
     <td class='px-4 py-3'>
       <div class='flex items-center text-sm'>
         <!-- Avatar with inset shadow -->
@@ -34,9 +34,9 @@ if (mysqli_num_rows($result) > $result2) {
       </span>
     </td>
     <td class='px-4 py-3 text-sm'>
-      "; echo $row['mensaje']; echo"
+      "; echo $row['comentario']; echo"
     </td>
-    </td>";
+    </p>";
   }
 } else {
   echo "NoMoreComments";
