@@ -27,7 +27,7 @@
     <script>
       $(document).ready(function () {
         var commentsCount = 0;
-
+        $('#btn2').hide();
         $("#btn").click(function () {
           $.post(
             "load-comments.php",
@@ -35,17 +35,25 @@
               commentsNewCount: commentsCount,
             },
             function (response) {
-              if (response.trim() == "NoMoreComments") {
+              if (response.trim() === "NoMoreComments") {
                 $("#btn").hide();
+                $("#btn2").show();
               } else {
                 $("#comments").append(response);
                 commentsCount = commentsCount + 2;
+                $("#btn").hide();
+                $("#btn2").show();
+              }
+              if (!response.trim() === "NoMoreComments") {
+                $("#btn").show();
+                $('#btn2').hide();
               }
             }
           );
         });
       });
-    </script>
+      </script>
+      
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       defer
@@ -1003,6 +1011,7 @@
               <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                 <span class="flex items-center col-span-3">
                   <button id="btn">Load moar</button>
+                  <button id="btn2">Check if moar</button>
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
