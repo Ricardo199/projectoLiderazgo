@@ -1,16 +1,18 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include 'dbh.php'; // Incluye el archivo de conexión a la base de datos
 
 $commentsNewCount = $_POST['commentsNewCount']; // Obtiene el valor de "commentsNewCount" de la solicitud POST
 
 // Construye una consulta SQL para recuperar comentarios de la base de datos
-$sql = "SELECT author, comentario FROM comments LIMIT $commentsNewCount, 2";
+$sql = "SELECT author, comentario FROM comments";
 
 // Ejecuta la consulta SQL utilizando la conexión a la base de datos
 $result = mysqli_query($conn, $sql);
 
 // Verifica si hay filas en el resultado
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($result) > 0 && $commentsNewCount < mysqli_num_rows($result)) {
     // Si hay filas, comienza a generar una tabla HTML
 
     // Muestra las etiquetas de apertura de la tabla y el encabezado una vez

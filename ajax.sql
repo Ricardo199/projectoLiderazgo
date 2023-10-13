@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2023 at 07:01 AM
+-- Generation Time: Oct 13, 2023 at 02:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -38,12 +38,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `author`, `comentario`) VALUES
-(1, 'Ricardo', 'Lorem ipsum'),
-(2, 'Ricardo', 'dolor sit amet'),
-(3, 'Ricardo', 'consectetur adipiscing elit'),
-(4, 'Ricardo', 'Ut volutpat pulvinar dictum'),
-(5, 'Ricardo', 'Aenean egestas eleifend sollicitudin'),
-(19, 'Ricardo', 'idk i forgot lorem ipsum');
+(1, 'Ricardo1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+(2, 'Ricardo2', 'Vivamus scelerisque quam eu congue scelerisque.'),
+(3, 'Ricardo3', 'Proin at arcu non leo facilisis sollicitudin.'),
+(4, 'Ricardo4', 'Nullam fringilla urna eu tellus facilisis, sed suscipit purus vestibulum.'),
+(5, 'Ricardo5', 'Sed sed massa nec ligula euismod aliquam.'),
+(19, 'Ricardo19', 'In hac habitasse platea dictumst.');
 
 --
 -- Indexes for dumped tables
