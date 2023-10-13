@@ -14,7 +14,7 @@ if (mysqli_num_rows($result) >= 0) {
                 <th class='px-4 py-3'>Client</th>
                 <th class='px-4 py-3'>Amount</th>
                 <th class='px-4 py-3'>Status</th>
-                <th class='px-4 py-3'>Date</th>
+                <th class='px-4 py-3'>Commentario</th>
             </tr>
         </thead>
         <tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>";
