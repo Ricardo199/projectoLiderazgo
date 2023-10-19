@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
         $_SESSION['login_user'] = $username;
-        header("location: index.php"); // Redirige a la página de inicio después del inicio de sesión exitoso
+        header("location: index.html"); // Redirige a la página de inicio después del inicio de sesión exitoso
     } else {
         $error = "Usuario o contraseña incorrectos";
         header("location: pages/login.html?error=" . urlencode($error));
